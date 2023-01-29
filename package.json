@@ -1,0 +1,38 @@
+{
+  "name": "project-architecture-boilerplate",
+  "version": "1.0.0",
+  "description": "Project architecture boilerplate.. ",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass src/assets/styles/sass/main.scss src/assets/styles/css/style.css -w",
+    "dev-server": "live-server",
+    "start": "npm-run-all --parallel dev-server watch:sass",
+    "compile:sass": "sass src/assets/styles/sass/main.scss src/assets/styles/css/style.comp.css",
+    "concat:sass": "concat -o src/assets/styles/css/style.concat.css src/assets/styles/css/style.comp.css",
+    "prefix:sass": "postcss --use autoprefixer -b 'last 10 browsers' src/assets/styles/css/style.concat.css -o src/assets/styles/css/style.prefix.css",
+    "compress:css": "sass src/assets/styles/css/style.prefix.css src/assets/styles/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:sass prefix:sass compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-eshwagadkar:eshwagadkar/project-architecture-boilerplate.git"
+  },
+  "keywords": [
+    "webpack5",
+    "npm",
+    "node"
+  ],
+  "author": "Eshwa Gadkar",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "concat": "^1.0.3",
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
